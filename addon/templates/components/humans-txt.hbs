@@ -1,0 +1,8 @@
+{{#each this.humans as |section|}}
+  <header>{{section.header}}</header>
+  <ul>
+    {{#each section.items as |item|}}
+      <li>{{item}}</li>
+    {{/each}}
+  </ul>
+{{/each}}
