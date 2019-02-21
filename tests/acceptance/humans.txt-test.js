@@ -1,15 +1,20 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
-import { visit } from '@ember/test-helpers';
+import { visit, settled } from '@ember/test-helpers';
 
 module('Acceptance | index', function(hooks) {
   setupApplicationTest(hooks);
 
-  skip('visiting /', async function(assert) {
+  test('visiting /', async function(assert) {
     await visit('/');
+    await settled();
 
-    assert.dom('header').includesText('TEAM');
-    assert.dom('ul').includesText('Developer: Zach Garwood');
-    assert.dom('ul').includesText('Location: Chicago, IL, USA');
+    assert.dom('.section:first-of-type header').includesText('TEAM');
+    assert.dom('.section:first-of-type li:first-child').includesText('Developer: Zach Garwood');
+    assert.dom('.section:first-of-type li:last-child').includesText('Location: Chicago, IL, USA');
+
+    assert.dom('.section:last-of-type header').includesText('SITE');
+    assert.dom('.section:last-of-type li').includesText('Standards: HTML5');
+
   });
 });

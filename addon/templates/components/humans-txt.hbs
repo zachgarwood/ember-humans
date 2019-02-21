@@ -1,8 +1,10 @@
-{{#each humans as |section|}}
-  <header>{{section.header}}</header>
-  <ul>
-    {{#each section.items as |item|}}
-      <li>{{item}}</li>
-    {{/each}}
-  </ul>
+{{#each sections as |section|}}
+  <div class="section">
+    <header>{{section.header}}</header>
+    <ul>
+      {{#each section.items as |item|}}
+        <li>{{item}}</li>
+      {{/each}}
+    </ul>
+  </div>
 {{/each}}
