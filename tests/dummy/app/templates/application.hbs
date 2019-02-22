@@ -1,3 +1,23 @@
 <h2 id="title">Ember is made by humans</h2>
 
-<HumansTxt/>
+<HumansTxt as |humans|>
+  <button class="toggle-view" {{action (toggle "showRaw" this)}}>
+    Toggle View
+  </button>
+  <div>
+    {{#if this.showRaw}}
+      <pre class="raw-text">{{humans.raw}}</pre>
+    {{else}}
+      {{#each humans.sections as |section|}}
+        <div class="humans-txt-section">
+          <header class="humans-txt-header">{{section.header}}</header>
+          <ul class="humans-txt-items">
+            {{#each section.items as |item|}}
+              <li class="humans-txt-item">{{item}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+</HumansTxt>

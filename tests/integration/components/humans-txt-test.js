@@ -9,10 +9,32 @@ module('Integration | Component | humans-txt', function(hooks) {
   setupMirage(hooks);
 
   test('it makes a request to /humans.txt', async function(assert) {
+    assert.expect(1);
     this.server.get('/humans.txt', function() {
       assert.ok(true, 'The component requests /humans.txt');
     });
 
     await render(hbs`<HumansTxt/>`);
+  });
+  test('it renders in inline form', async function(assert) {
+    await render(hbs`<HumansTxt/>`);
+
+    assert.dom('.humans-txt-section:first-of-type header').includesText('TEAM');
+    assert.dom('.humans-txt-section:first-of-type li:first-child').includesText('Developer: Zach Garwood');
+    assert.dom('.humans-txt-section:first-of-type li:last-child').includesText('Location: Chicago, IL, USA');
+    assert.dom('.humans-txt-section:last-of-type header').includesText('SITE');
+    assert.dom('.humans-txt-section:last-of-type li').includesText('Standards: HTML5');
+  });
+  test('it renders in block form', async function(assert) {
+    await render(hbs`
+      <HumansTxt as |humans|>
+        {{#each humans.sections as |section|}}
+          <p>{{section.header}}</p>
+        {{/each}}
+      </HumansTxt>
+    `)
+
+    assert.dom('p:first-of-type').includesText('TEAM');
+    assert.dom('p:last-of-type').includesText('SITE');
   });
 });

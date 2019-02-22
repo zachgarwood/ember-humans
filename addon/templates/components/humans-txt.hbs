@@ -1,10 +1,14 @@
-{{#each sections as |section|}}
-  <div class="section">
-    <header>{{section.header}}</header>
-    <ul>
-      {{#each section.items as |item|}}
-        <li>{{item}}</li>
-      {{/each}}
-    </ul>
-  </div>
-{{/each}}
+{{#if (has-block)}}
+  {{yield (hash sections=this.sections raw=humansTxt)}}
+{{else}}
+  {{#each this.sections as |section|}}
+    <div class="humans-txt-section">
+      <header class="humans-txt-header">{{section.header}}</header>
+      <ul class="humans-txt-items">
+        {{#each section.items as |item|}}
+          <li class="humans-txt-item">{{item}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/each}}
+{{/if}}
