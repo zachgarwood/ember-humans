@@ -1,13 +1,12 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
-import { click, visit, settled } from '@ember/test-helpers';
+import { click, visit } from '@ember/test-helpers';
 
-module('Acceptance | index', function(hooks) {
+module('Acceptance | Usage', function(hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /', async function(assert) {
-    await visit('/');
-    await settled();
+  test('Usage', async function(assert) {
+    await visit('/docs/usage');
 
     assert.dom('.humans-txt-section:first-of-type header').includesText('TEAM');
     assert.dom('.humans-txt-section:last-of-type header').includesText('SITE');
