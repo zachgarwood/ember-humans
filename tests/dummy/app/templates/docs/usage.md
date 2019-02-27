@@ -2,7 +2,7 @@
 
 {{#docs-demo as |demo|}}
   {{#demo.example name='humans.hbs'}}
-    <HumansTxt as |humans|>
+    {{#humans-txt as |humans|}}
       <button class="toggle-view" {{action (toggle "showRaw" this)}}>
         Toggle View
       </button>
@@ -22,7 +22,7 @@
           {{/each}}
         {{/if}}
       </div>
-    </HumansTxt>
+    {{/humans-txt}}
   {{/demo.example}}
 
   {{demo.snippet 'humans.hbs'}}

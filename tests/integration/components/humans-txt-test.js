@@ -10,7 +10,7 @@ module('Integration | Component | humans-txt', function(hooks) {
   setupMirage(hooks);
 
   test('it renders in inline form', async function(assert) {
-    await render(hbs`<HumansTxt/>`);
+    await render(hbs`{{humans-txt}}`);
 
     assert.dom('.humans-txt-section:first-of-type header').includesText('TEAM');
     assert.dom('.humans-txt-section:first-of-type li:first-child').includesText('Developer: Zach Garwood');
@@ -20,11 +20,11 @@ module('Integration | Component | humans-txt', function(hooks) {
   });
   test('it renders in block form', async function(assert) {
     await render(hbs`
-      <HumansTxt as |humans|>
+      {{#humans-txt as |humans|}}
         {{#each humans.sections as |section|}}
           <p>{{section.header}}</p>
         {{/each}}
-      </HumansTxt>
+      {{/humans-txt}}
     `)
 
     assert.dom('p:first-of-type').includesText('TEAM');
@@ -34,19 +34,19 @@ module('Integration | Component | humans-txt', function(hooks) {
     assert.expect(1);
     this.server.get('/humans.txt', () => assert.ok(true, 'The component requests /humans.txt'));
 
-    await render(hbs`<HumansTxt/>`);
+    await render(hbs`{{humans-txt}}`);
   });
   test('it handles 404', async function(assert) {
     this.server.get('/humans.txt', () => new Response(404, {}, {}));
 
-    await render(hbs`<HumansTxt/>`);
+    await render(hbs`{{humans-txt}}`);
 
     assert.dom('*').isNotVisible();
   });
   test('it handles a 500 response', async function(assert) {
     this.server.get('/humans.txt', () => new Response(500, {}, {}));
 
-    await render(hbs`<HumansTxt/>`);
+    await render(hbs`{{humans-txt}}`);
 
     assert.dom('*').isNotVisible();
   });
