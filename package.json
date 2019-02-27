@@ -1,12 +1,12 @@
 {
   "name": "ember-humans",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Ember is written by humans.",
   "keywords": [
     "ember-addon",
     "humans.txt"
   ],
-  "repository": "",
+  "repository": "https://github.com/zachgarwood/ember-humans",
   "license": "MIT",
   "author": "",
   "directories": {
@@ -54,7 +54,7 @@
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.7.0",
     "ember-source-channel-url": "^1.1.0",
-    "ember-try": "^1.0.0",
+    "ember-try": "^0.2.0",
     "eslint-plugin-ember": "^5.2.0",
     "eslint-plugin-node": "^7.0.1",
     "loader.js": "^4.7.0",
@@ -64,6 +64,9 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "versionCompatibility": {
+      "ember": "~2.18.0 || 3"
+    }
   }
 }

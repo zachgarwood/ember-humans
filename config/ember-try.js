@@ -9,6 +9,8 @@ module.exports = function() {
     getChannelURL('canary')
   ]).then((urls) => {
     return {
+      command: 'ember exam --split=4 --parallel --random',
+      npmOptions: ['--loglevel=silent'],
       scenarios: [
         {
           name: 'ember-lts-2.18',
@@ -40,6 +42,7 @@ module.exports = function() {
         },
         {
           name: 'ember-beta',
+          allowedToFail: true,
           npm: {
             devDependencies: {
               'ember-source': urls[1]
@@ -48,6 +51,7 @@ module.exports = function() {
         },
         {
           name: 'ember-canary',
+          allowedToFail: true,
           npm: {
             devDependencies: {
               'ember-source': urls[2]
