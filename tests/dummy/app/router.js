@@ -8,7 +8,7 @@ const Router = AddonDocsRouter.extend({
 
 Router.map(function() {
   docsRoute(this, function() {
-    this.route('installation');
+    this.route('quickstart');
     this.route('usage');
   });
   this.route('not-found', { path: '/*path' });
