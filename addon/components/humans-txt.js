@@ -10,24 +10,23 @@ export default Component.extend({
   layout,
   classNames: ['humans-txt'],
 
-  humansTxt: '',
+  raw: '',
 
-  sections: computed('humansTxt', function () {
-    let lines = this.get('humansTxt').split('\n');
-    let sections = lines.reduce((sections, line) => {
+  blocks: computed('raw', function () {
+    let lines = this.get('raw').split('\n');
+    return lines.reduce((blocks, line) => {
       let result;
       if ((result = /\/\*([\s\S]*?)\*\//g.exec(line)) !== null) {
-        sections.push({ header: result[1], items: [] })
+        blocks.push({ header: result[1], items: [] })
       } else if ((result = /(\S+)/g.exec(line)) !== null) {
-        if (sections.length === 0) {
+        if (blocks.length === 0) {
           warn('No initial header provided.', Ember.testing, { id: 'ember-humans.no-initial-header' });
-          sections.push({ header: 'HUMANS', items: [] })
+          blocks.push({ header: 'HUMANS', items: [] })
         }
-        sections[sections.length - 1].items.push(line);
+        blocks[blocks.length - 1].items.push(line);
       }
-      return sections;
+      return blocks;
     }, []);
-    return sections;
   }),
 
   init() {
@@ -39,7 +38,7 @@ export default Component.extend({
     let response = await fetch(config.rootURL + 'humans.txt');
     switch (response.status) {
       case 200:
-        this.set('humansTxt', await response.text());
+        this.set('raw', await response.text());
         break;
       case 404:
         warn(

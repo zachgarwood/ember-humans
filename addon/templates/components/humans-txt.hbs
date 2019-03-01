@@ -1,14 +1,14 @@
 {{#if (has-block)}}
-  {{yield (hash sections=this.sections raw=humansTxt)}}
+  {{yield (hash blocks=this.blocks raw=this.raw)}}
 {{else}}
-  {{#each this.sections as |section|}}
-    <div class="humans-txt-section">
-      <header class="humans-txt-header">{{section.header}}</header>
+  {{#each this.blocks as |block|}}
+    <section class="humans-txt-section">
+      <header class="humans-txt-header">{{block.header}}</header>
       <ul class="humans-txt-items">
-        {{#each section.items as |item|}}
+        {{#each block.items as |item|}}
           <li class="humans-txt-item">{{item}}</li>
         {{/each}}
       </ul>
-    </div>
+    </section>
   {{/each}}
 {{/if}}

@@ -12,7 +12,7 @@ to the `robots.txt` file.
 It should look something like this:
 
 {{#humans-txt as |humans|}}
-  <pre class="raw-text">{{humans.raw}}</pre>
+  <pre>{{humans.raw}}</pre>
 {{/humans-txt}}
 
 For more information, see

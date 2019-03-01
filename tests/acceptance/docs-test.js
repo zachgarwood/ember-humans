@@ -1,4 +1,4 @@
-import { click, visit } from '@ember/test-helpers';
+import { visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 
@@ -13,28 +13,22 @@ module('Acceptance | Docs', function(hooks) {
   test('display in inline form', async function(assert) {
     await visit('/docs/quickstart#humanstxt-component');
 
-    assert.dom('.humans-txt-section:first-of-type header').includesText('TEAM');
-    assert.dom('.humans-txt-section:first-of-type li:first-child').includesText('Developer: Zach Garwood');
-    assert.dom('.humans-txt-section:first-of-type li:last-child').includesText('Location: Chicago, IL, USA');
-    assert.dom('.humans-txt-section:last-of-type header').includesText('SITE');
-    assert.dom('.humans-txt-section:last-of-type li').includesText('Standards: HTML5');
-  });
-  test('display raw text', async function(assert) {
-    await visit('/docs/quickstart#humanstxt-file');
-
-    assert.dom('pre.raw-text').includesText('/* TEAM */');
-    assert.dom('pre.raw-text').includesText('/* SITE */');
+    assert.dom('section:first-of-type header').includesText('TEAM');
+    assert.dom('section:first-of-type li:first-child').includesText('Developer: Zach Garwood');
+    assert.dom('section:first-of-type li:last-child').includesText('Location: Chicago, IL, USA');
+    assert.dom('section:last-of-type header').includesText('SITE');
+    assert.dom('section:last-of-type li').includesText('Standards: HTML5');
   });
   test('display in block form', async function(assert) {
-    await visit('/docs/usage');
+    await visit('/docs/usage#blocks');
 
-    assert.dom('.humans-txt-section:first-of-type header').includesText('TEAM');
-    assert.dom('.humans-txt-section:last-of-type header').includesText('SITE');
-    assert.dom('pre.raw-text').isNotVisible();
+    assert.dom('dl:first-of-type>dt').includesText('TEAM');
+    assert.dom('dl:last-of-type>dt').includesText('SITE');
+  });
+  test('display raw text', async function(assert) {
+    await visit('/docs/usage#raw');
 
-    await click('button.toggle-view');
-
-    assert.dom('pre.raw-text').includesText('/* TEAM */');
-    assert.dom('.humans-txt-section').isNotVisible();
+    assert.dom('pre.text-raw').includesText('/* TEAM */');
+    assert.dom('pre.text-raw').includesText('/* SITE */');
   });
 });
