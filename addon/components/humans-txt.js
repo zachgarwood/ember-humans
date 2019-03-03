@@ -6,12 +6,57 @@ import { computed } from '@ember/object';
 import { getOwner } from '@ember/application';
 import { warn } from '@ember/debug';
 
+/**
+ * Display the contents of `humans.txt`.
+ *
+ * ```hbs
+ * {{#humans-txt as |text|}}
+ *   {{#each text.blocks as |block|}}
+ *     <dl>
+ *       <dt>{{block.header}}</dt>
+ *       <dd>
+ *         {{#each block.items as |item|}}
+ *           <p>{{item}}</p>
+ *         {{/each}}
+ *       </dd>
+ *     </dl>
+ *   {{/each}}
+ * {{/humans-txt}}
+ * ```
+ *
+ * @class HumansTxt
+ * @yield {Hash} text
+ * @yield {Array<Object>} text.blocks
+ * @yield {String} text.raw
+ */
 export default Component.extend({
   layout,
   classNames: ['humans-txt'],
 
+  /**
+   * The raw text of `humans.txt`.
+   *
+   * @property raw
+   * @type String
+   */
   raw: '',
 
+  /**
+   * The text from `humans.txt` divided up into blocks.
+   *
+   * Example:
+   * ```javascript
+   * [
+   *   {
+   *     header: "HEADER",
+   *     items: [ "Item: Description" ]
+   *   }
+   * ]
+   * ```
+   *
+   * @property blocks
+   * @type Array<Object>
+   */
   blocks: computed('raw', function () {
     let lines = this.get('raw').split('\n');
     return lines.reduce((blocks, line) => {
