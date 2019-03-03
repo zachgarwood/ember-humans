@@ -20,13 +20,13 @@ module('Acceptance | Docs', function(hooks) {
     assert.dom('section:last-of-type li').includesText('Standards: HTML5');
   });
   test('display in block form', async function(assert) {
-    await visit('/docs/usage#blocks');
+    await visit('/docs/usage#using-blocks');
 
     assert.dom('dl:first-of-type>dt').includesText('TEAM');
     assert.dom('dl:last-of-type>dt').includesText('SITE');
   });
   test('display raw text', async function(assert) {
-    await visit('/docs/usage#raw');
+    await visit('/docs/usage#output-raw-text');
 
     assert.dom('pre.text-raw').includesText('/* TEAM */');
     assert.dom('pre.text-raw').includesText('/* SITE */');

@@ -1,8 +1,15 @@
 # Usage
 
-`{{humans-txt}}` yields a hash containing `sections` and `rawText`.
+The simplest way to use HumansTxt is to drop it into the template of your
+Credits page, as is. But if you'd like to customize the look and layout, you
+should use the block form. In block form, the element yields a hash containing
+both an organized data structure, `blocks`, and the raw text of the humans.txt
+file, `raw`.
 
-## blocks
+## Using blocks
+
+The `blocks` property is a list of objects, each containing a header and list of
+items under that header.
 
 {{#docs-demo as |demo|}}
   {{#demo.example name='usage.blocks.hbs'}}
@@ -23,7 +30,9 @@
   {{demo.snippet 'usage.blocks.hbs'}}
 {{/docs-demo}}
 
-## raw
+## Output raw text
+
+The `raw` property dumps the raw text of your humans.txt.
 
 {{#docs-demo as |demo|}}
   {{#demo.example name='usage.raw.hbs'}}

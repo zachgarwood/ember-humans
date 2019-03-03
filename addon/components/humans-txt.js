@@ -7,22 +7,7 @@ import { getOwner } from '@ember/application';
 import { warn } from '@ember/debug';
 
 /**
- * Display the contents of `humans.txt`.
- *
- * ```hbs
- * {{#humans-txt as |text|}}
- *   {{#each text.blocks as |block|}}
- *     <dl>
- *       <dt>{{block.header}}</dt>
- *       <dd>
- *         {{#each block.items as |item|}}
- *           <p>{{item}}</p>
- *         {{/each}}
- *       </dd>
- *     </dl>
- *   {{/each}}
- * {{/humans-txt}}
- * ```
+ * Customize and display the contents of humans.txt.
  *
  * @class HumansTxt
  * @yield {Hash} text
@@ -34,15 +19,15 @@ export default Component.extend({
   classNames: ['humans-txt'],
 
   /**
-   * The raw text of `humans.txt`.
+   * The raw text of humans.txt.
    *
    * @property raw
-   * @type String
+   * @type {String}
    */
   raw: '',
 
   /**
-   * The text from `humans.txt` divided up into blocks.
+   * The text from humans.txt divided up into blocks.
    *
    * Example:
    * ```javascript
@@ -55,7 +40,7 @@ export default Component.extend({
    * ```
    *
    * @property blocks
-   * @type Array<Object>
+   * @type {Array<Object>}
    */
   blocks: computed('raw', function () {
     let lines = this.get('raw').split('\n');
