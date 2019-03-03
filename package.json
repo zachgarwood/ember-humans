@@ -7,6 +7,7 @@
     "humans.txt"
   ],
   "repository": "https://github.com/zachgarwood/ember-humans",
+  "homepage": "https://zachgarwood.github.io/ember-humans",
   "license": "MIT",
   "author": "",
   "directories": {
@@ -67,9 +68,9 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
+    "demoURL": "https://zachgarwood.github.io/ember-humans",
     "versionCompatibility": {
       "ember": "~2.18.0 || 3"
     }
-  },
-  "homepage": "https://zachgarwood.github.io/ember-humans"
+  }
 }
