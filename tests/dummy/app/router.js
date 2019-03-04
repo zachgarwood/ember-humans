@@ -11,7 +11,6 @@ Router.map(function() {
     this.route('quickstart');
     this.route('usage');
   });
-  this.route('not-found', { path: '/*path' });
 });
 
 export default Router;
