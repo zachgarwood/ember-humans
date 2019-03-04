@@ -6,7 +6,7 @@
     "ember-addon",
     "humans.txt"
   ],
-  "repository": "https://github.com/zachgarwood/ember-humans",
+  "repository": "github:zachgarwood/ember-humans",
   "homepage": "https://zachgarwood.github.io/ember-humans",
   "license": "MIT",
   "author": "",
