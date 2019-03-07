@@ -1,9 +1,10 @@
 {
   "name": "ember-humans",
   "version": "0.1.1",
-  "description": "Ember is written by humans.",
+  "description": "Your application is written by humans.",
   "keywords": [
     "ember-addon",
+    "humans",
     "humans.txt"
   ],
   "repository": "github:zachgarwood/ember-humans",
