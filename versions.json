@@ -5,12 +5,6 @@
     "sha": "76d3ccdbd756b6f2361756a8f6491d85b461eda8",
     "tag": null
   },
-  "v0.1.0": {
-    "path": "versions/v0.1.0",
-    "name": "v0.1.0",
-    "sha": "763a62ac79e3c149b11b99c59760c638c7c81fd7",
-    "tag": "v0.1.0"
-  },
   "-latest": {
     "path": "",
     "name": "Latest",

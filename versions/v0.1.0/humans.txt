@@ -1,6 +1,0 @@
-/* TEAM */
-Developer: Zach Garwood
-Location: Chicago, IL, USA
-
-/* SITE */
-Standards: HTML5
