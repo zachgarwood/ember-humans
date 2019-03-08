@@ -5,11 +5,6 @@ import { setupApplicationTest } from 'ember-qunit';
 module('Acceptance | Docs', function(hooks) {
   setupApplicationTest(hooks);
 
-  test('attribute humanstxt.org', async function(assert) {
-    await visit('/docs');
-
-    assert.dom('[href="http://humanstxt.org"]').exists();
-  });
   test('display in inline form', async function(assert) {
     await visit('/docs/quickstart#humanstxt-component');
 
