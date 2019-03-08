@@ -1,29 +1,22 @@
 ember-humans
 ==============================================================================
 
-[Short description of the addon.]
-
-
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v2.18 or above
-* Ember CLI v2.13 or above
+Ember.js v2.18 or above
 
-
-Installation
+Documentation
 ------------------------------------------------------------------------------
 
-```
-ember install ember-humans
-```
+* [Guides](https://zachgarwood.github.io/ember-humans/)
+* [Changelog](CHANGELOG.md)
+* [How to Contribute](CONTRIBUTING.md)
 
-
-Usage
+Source
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
-
+https://github.com/zachgarwood/ember-humans
 
 License
 ------------------------------------------------------------------------------
