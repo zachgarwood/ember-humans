@@ -1,8 +1,11 @@
 {{#docs-viewer as |viewer|}}
   {{#viewer.nav as |nav|}}
-    {{nav.item "Introduction" "docs.index"}}
+    {{nav.section "Introduction"}}
     {{nav.item "Quickstart" "docs.quickstart"}}
     {{nav.item "Usage" "docs.usage"}}
+    {{nav.section "Changelog"}}
+    {{nav.item "Releases" "docs.changelog.index"}}
+    {{nav.item "Unreleased Changes" "docs.changelog.unreleased"}}
   {{/viewer.nav}}
 
   {{#viewer.main}}
