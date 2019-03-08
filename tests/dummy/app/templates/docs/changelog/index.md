@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.1.2 - 2019-03-07](https://github.com/zachgarwood/ember-humans/releases/tag/v0.1.2)
+The more documentation the better
+
+We started this changelog and updated the README.
+
 ## [v0.1.1 - 2019-03-03](https://github.com/zachgarwood/ember-humans/releases/tag/v0.1.1)
 The first (non-corrupted) release
 
