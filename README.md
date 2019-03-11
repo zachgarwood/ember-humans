@@ -10,7 +10,7 @@ Documentation
 ------------------------------------------------------------------------------
 
 * [Guides](https://zachgarwood.github.io/ember-humans/)
-* [Changelog](https://zachgarwood.github.io/ember-humans/docs/changlog)
+* [Changelog](https://zachgarwood.github.io/ember-humans/docs/changelog)
 * [How to Contribute](CONTRIBUTING.md)
 
 Source
