@@ -12,6 +12,7 @@ Router.map(function() {
       this.route('unreleased');
     });
     this.route('quickstart');
+    this.route('tutorial');
     this.route('usage');
   });
   this.route('not-found', { path: '/*path' });
