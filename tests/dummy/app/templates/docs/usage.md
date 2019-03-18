@@ -3,22 +3,22 @@
 The simplest way to use HumansTxt is to drop it into the template of your
 Credits page, as is. But if you'd like to customize the look and layout, you
 should use the block form. In block form, the element yields a hash containing
-both an organized data structure, `blocks`, and the raw text of the humans.txt
+both an organized data structure, `sections`, and the raw text of the humans.txt
 file, `raw`.
 
-## Using blocks
+## Using sections
 
-The `blocks` property is a list of objects, each containing a header and list of
-items under that header.
+The `sections` property is a list of objects, each containing a header and list
+of items under that header.
 
 {{#docs-demo as |demo|}}
-  {{#demo.example name='usage.blocks.hbs'}}
+  {{#demo.example name='usage.sections.hbs'}}
     {{#humans-txt as |text|}}
-      {{#each text.blocks as |block|}}
+      {{#each text.sections as |section|}}
         <dl>
-          <dt>{{block.header}}</dt>
+          <dt>{{section.header}}</dt>
           <dd>
-            {{#each block.items as |item|}}
+            {{#each section.items as |item|}}
               <p>{{item}}</p>
             {{/each}}
           </dd>
@@ -27,7 +27,7 @@ items under that header.
     {{/humans-txt}}
   {{/demo.example}}
 
-  {{demo.snippet 'usage.blocks.hbs'}}
+  {{demo.snippet 'usage.sections.hbs'}}
 {{/docs-demo}}
 
 ## Output raw text

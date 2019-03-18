@@ -11,7 +11,7 @@ import { warn } from '@ember/debug';
  *
  * @class HumansTxt
  * @yield {Hash} text
- * @yield {Array<Object>} text.blocks
+ * @yield {Array<Object>} text.sections
  * @yield {String} text.raw
  */
 export default Component.extend({
@@ -39,23 +39,23 @@ export default Component.extend({
    * ]
    * ```
    *
-   * @property blocks
+   * @property sections
    * @type {Array<Object>}
    */
-  blocks: computed('raw', function () {
+  sections: computed('raw', function () {
     let lines = this.get('raw').split('\n');
-    return lines.reduce((blocks, line) => {
+    return lines.reduce((sections, line) => {
       let result;
       if ((result = /\/\*([\s\S]*?)\*\//g.exec(line)) !== null) {
-        blocks.push({ header: result[1], items: [] })
+        sections.push({ header: result[1], items: [] })
       } else if ((result = /(\S+)/g.exec(line)) !== null) {
-        if (blocks.length === 0) {
+        if (sections.length === 0) {
           warn('No initial header provided.', Ember.testing, { id: 'ember-humans.no-initial-header' });
-          blocks.push({ header: 'HUMANS', items: [] })
+          sections.push({ header: 'HUMANS', items: [] })
         }
-        blocks[blocks.length - 1].items.push(line);
+        sections[sections.length - 1].items.push(line);
       }
-      return blocks;
+      return sections;
     }, []);
   }),
 
